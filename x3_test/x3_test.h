@@ -1,3 +1,4 @@
+//pt w pierwszej linijce
 #ifndef programSD_H
 #define programSD_H
 
