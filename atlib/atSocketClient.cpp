@@ -1,7 +1,7 @@
 #include "atSocketClient.h"
 
 //--------------------------------------------------
-atSocketClient::atSocketClient(atDataBuffer *dr,atDataBuffer *dw, string h, uint16_t p)
+atSocketClient::atSocketClient(atDataBuffer *dr,atDataBuffer *dw, std::string h, uint16_t p)
 {
     dbr=dr;
     dbw=dw;
