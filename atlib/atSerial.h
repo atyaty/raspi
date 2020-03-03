@@ -9,10 +9,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-//#include <wiringPi.h>
-//#include <wiringSerial.h>
 #include <atDataBuffer.h>
-
 //------------------------------------------
 using namespace std;
 
@@ -21,16 +18,13 @@ class atSerial {
 private:
     int fd;
     long int timeout;
+    atDataBuffer *dbr;
+    atDataBuffer *dbw;
+
 
 public:
-    //atSerial( long int t );
-    atSerial( const char* d, const int b, long int t );
-    void puts(string s);
-    void puts(atDataBuffer *d);
-    string gets();
-    void gets(atDataBuffer *d);
-    void gets1(atDataBuffer *d);
-
+    atSerial( atDataBuffer *dr,atDataBuffer *dw, std::string h);
+    void go();
 };
 
 #endif // ATSERIAL_H

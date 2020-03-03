@@ -1,37 +1,33 @@
 #include "atSerial.h"
 
 //----------------------------------------------------------------------
-atSerial::atSerial( const char* d, const int b, long int t ){
-    timeout =t;
-    fd = open (d, O_RDWR);
+atSerial::atSerial(atDataBuffer *dr,atDataBuffer *dw, std::string h ){
+   dbr=dr;
+   dbw=dw;
+   fd = open (h.c_str(), O_RDWR);
 
-    //if ( fd>=0 && wiringPiSetup() == -1)  { serialClose(fd); fd = -1; }
+}
+//--------------------------------------------------
+void atSerial::go() {
+
+    //if(sError!="") return;
+   int n;
+
+    //  sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    //if (sockfd < 0)  sError="Socket error";
+    if(fd==-1) return ;
+    n = write(fd,dbw->getFrame(),dbw->getDataLen());
+    if (n < 0){
+      //sError="Write error";
+      return;
+    }
+    dbr->Clear();
+    n = read(fd,dbr->getFrame(),dbr->getFrameLen());
+    if (n < 0){
+      //sError="Read error";
+      return ;
+    }
+    dbr->setDataLen(n);
 }
 
 //-------------------------------------------------------------------------
-//void atSerial::puts(string s){
-
-  //  for (unsigned i = 0 ; i<s.length() ; i++ ) {
-    //     write(fd, s[i]) ;
-    //}
-    //serialPutchar (fd,'\n');
-
-//}
-//-------------------------------------------------------------------------
-void atSerial::puts(atDataBuffer *d){
-    int ret = write(fd,d->getFrame(),d->getDataLen());
-
-}
-//-----------------------------------------------------------------------
-//string atSerial::gets(){
-  //  string s;
-    //while ( serialDataAvail(fd) )   { s+=(serialGetchar (fd));    }
-    //return s;
-//}
-//-----------------------------------------------------------------------
-void atSerial::gets(atDataBuffer *d){
-    int ret = read(fd,d->getFrame(),d->getFrameLen());
-    if(ret<0) d->setDataLen(0);
-    else d->setDataLen(ret);
-}
-

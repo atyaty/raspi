@@ -12,7 +12,9 @@ SOURCES += \
     ../atlib/atError.cpp \
     ../atlib/atFileLog.cpp \
     ../atlib/atFunctions.cpp \
-    serial_client_win.cpp
+    serial_client_win.cpp \
+    ../atlib/atSerial.cpp \
+    ../atlib/atDataBuffer.cpp
 
 unix: CONFIG += link_pkgconfig
 unix: PKGCONFIG += gtkmm-3.0
@@ -27,4 +29,8 @@ HEADERS += \
     ../atlib/atErrors.h \
     ../atlib/atFileLog.h \
     ../atlib/atFunctions.h \
-    serial_client_win.h
+    serial_client_win.h \
+    ../atlib/atSerial.h \
+    ../atlib/atDataBuffer.h
+
+INCLUDEPATH +=  ../atlib

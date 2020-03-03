@@ -23,7 +23,7 @@ atSocketClient::atSocketClient(atDataBuffer *dr,atDataBuffer *dw, std::string h,
 
 }
 //--------------------------------------------------
-atSocketClient::~atSocketClient() {    close(sockfd);   }
+atSocketClient::~atSocketClient() {    close(sockfd);   }//UWAGA możliwe użycie nie zainicjowanej zmiennej sockfd
 
 //--------------------------------------------------
 void atSocketClient::go() {
