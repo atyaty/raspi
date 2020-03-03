@@ -44,6 +44,7 @@
 #define SD_LEVEL_RAP_NIC        0
 
 //test gita
+//druga linijka
 class programSD {
 private:
 
