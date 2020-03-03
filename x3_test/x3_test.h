@@ -43,7 +43,7 @@
 #define SD_LEVEL_RAP_WORK       2
 #define SD_LEVEL_RAP_NIC        0
 
-
+//test gita
 class programSD {
 private:
 
