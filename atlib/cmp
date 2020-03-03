@@ -1,0 +1,192 @@
+3,6c3,6
+< //--------------------------------------------------------------------------------
+< // 
+< #define AT_REGBUFLEN        256            //pula adresowa przypadaj?ca na jedno urz?dzenie
+< #define AT_REGADDRES_MODBUS 0x00
+---
+> //-----------------------------------------------------------------------------------------------------------------------------------------// 
+> //
+> #define AT_REGBUFLEN        256            //pula adresowa przypadaj¹ca na jedno urz¹dzenie
+> #define AT_REGADDRES_MODBUS 0x00  
+12c12
+< //-------------------------------------PWMy (max 7, po cztery kanaly w kazdym = 28)
+---
+> //-------------------------------------PWMy (max 7, po cztery kana³y w ka¿dym = 28, mo¿e starczy)
+28c28
+< //-------------------------------------moduly odpalane na TWI/SPI
+---
+> //-------------------------------------modu³y odpalane na TWI/SPI
+38c38
+< //------------------------------------moduly logiczne: PIDy
+---
+> //------------------------------------modu³y logiczne: PIDy
+43c43
+< //-------------------------------------moduly logiczne: Tracery
+---
+> //-------------------------------------modu³y logiczne: Tracery
+51c51
+< //-------------------------------------moduly logiczne programu.
+---
+> //-------------------------------------modu³y logiczne programu. Dedykowane do poszczególnych aplikacji (zape³niamy od koñca, w miarê potrzeb)
+62c62
+< #define AT_REGADRES_TERMO      0x86     //Id termomoduÅ‚u
+---
+> #define AT_REGADRES_TERMO      0x86     //Id termomodu³u
+65,69c65,69
+< //-------------------------------------------------------------------------------------------------------------
+< #define AT_MODBUS_RESPNAG       4    //dlugosc naglowka ramki Receive (Response) - nie zawiera informacji o ilo?ci danych. Ilo?c danych okre?lona na podstawie funkcji.
+< #define AT_MODBUS_REQUNAG       6    //dlugosc naglowka ramki Send (Request)
+< #define AT_MODBUS_FRAME_LEN     48   //dlugosc bufora ramki
+< #define AT_MODBUS_REGOFFSET     3    //bajt na ktÃ³rym zapisany jest OFFSET rejestrÃ³w  (X3 - zamieniÄ‡ na AT_MODBUS_FRAME_REG)
+---
+> //----------------------------------------------------------------------------------------------------------------------------------------------------//
+> #define AT_MODBUS_RESPNAG       4    //d³ugoœæ nag³ówka ramki X3=Send PC=Rece (Response)
+> #define AT_MODBUS_REQUNAG       6    //d³ugoœæ nag³ówka ramki X3=Rece PC=Send (Request)
+> #define AT_MODBUS_FRAME_LEN     48   //d³ugoœæ bufora ramki
+> #define AT_MODBUS_REGOFFSET     3    //bajt na którym zapisany jest OFFSET rejestrów
+78,80c78,80
+< #define AT_MODBUS_WRITE  0x10
+< #define AT_MODBUS_SET    0x13
+< #define AT_MODBUS_READ   0x03
+---
+> #define AT_MODBUS_WRITE  0x10   //zapis
+> #define AT_MODBUS_SET    0x13   //zapis i odczyt
+> #define AT_MODBUS_READ   0x03   //odczyt
+86a87,89
+> //---------------------------------------------------------------------------------------------------------------------------------
+> #define AT_MOTOR_DIR_UP         0				//praca w górê
+> #define AT_MOTOR_DIR_DN         1				//praca w dó³
+88,94c91,94
+< #define AT_MOTOR_DIR_UP         0				//praca w gore
+< #define AT_MOTOR_DIR_DN         1				//praca w dol
+< //-----------------------------------
+< #define AT_HELI_PID_KAT_MIN        -32767	    	//minimalny dostepny kat wychylenia - parametr pida (niefizyczny)
+< #define AT_HELI_PID_KAT_MAX        32767	    	//minimalny dostepny kat wychylenia - parametr pida
+< #define AT_HELI_PID_THR_MIN      0	        	//minimalny dostepny ciag - parametr pida
+< #define AT_HELI_PID_THR_MAX      65535	       	//maksymalny dostepny ciag - parametr pida
+---
+> #define AT_HELI_PID_KAT_MIN        -32767	    	//minimalny dostêpny k¹t wychylenia - parametr pida (niefizyczny)
+> #define AT_HELI_PID_KAT_MAX        32767	    	//minimalny dostêpny k¹t wychylenia - parametr pida
+> #define AT_HELI_PID_THR_MIN      0	        	//minimalny dostêpny ci¹g - parametr pida
+> #define AT_HELI_PID_THR_MAX      65535	       	//maksymalny dostêpny ci¹g - parametr pida
+99,112c99,112
+< #define AT_MOTOR_DO            0x00          //
+<     #define AT_MOTOR_DO_GO        0		     //efektywny sygnal wyjscia
+<     #define AT_MOTOR_DO_DIR       1		     //efektywny kierunek
+<     #define AT_MOTOR_DO_EN        2		     //efektywny EN
+<     #define AT_MOTOR_DO_DEST      3		     //efektywny DEST
+<     #define AT_MOTOR_DO_UPSTOP    4		//krancowka
+<     #define AT_MOTOR_DO_DNSTOP    5		//krancowka
+<     #define AT_MOTOR_DO_UP        6		//ruch w gore (przycisk)
+<     #define AT_MOTOR_DO_DN        7		//ruch w dol (przycisk)
+<     #define AT_MOTOR_DO_FUPSTOP   8		//krancowka UP (przeciazenie)
+<     #define AT_MOTOR_DO_FDNSTOP   9		//krancowka DN (przeciazenie)
+< 	#define AT_MOTOR_DO_EMG      10		//emg      (czerwony klawisz)
+< #define AT_MOTOR_AO_POS        0x02		    //aktualna pozycja (podwojny rejestr)
+< #define AT_MOTOR_AO_FREQ       0x06		    //aktualna predkosc
+---
+> #define AT_MOTOR_DO            0x00     //
+>     #define AT_MOTOR_DO_GO        0		//efektywny sygna³ wyjœcia
+>     #define AT_MOTOR_DO_DIR       1		//efektywny kierunek
+>     #define AT_MOTOR_DO_EN        2		//efektywny EN
+>     #define AT_MOTOR_DO_DEST      3		//efektywny DEST
+>     #define AT_MOTOR_DO_UPSTOP    4		//krañcówka
+>     #define AT_MOTOR_DO_DNSTOP    5		//krañcówka
+>     #define AT_MOTOR_DO_UP        6		//ruch w górê (przycisk)
+>     #define AT_MOTOR_DO_DN        7		//ruch w dó³ (przycisk)
+>     #define AT_MOTOR_DO_FUPSTOP   8		//krañcówka UP (przeci¹¿enie)
+>     #define AT_MOTOR_DO_FDNSTOP   9		//krañcówka DN (przeci¹¿enie)
+>     #define AT_MOTOR_DO_EMG      10		//emg      (czerwony klawisz)
+> #define AT_MOTOR_AO_POS        0x02		//aktualna pozycja (podwójny rejestr)
+> #define AT_MOTOR_AO_FREQ       0x06		//aktualna prêdkoœæ
+118,124c118,124
+< 	#define AT_MOTOR_DI_GO        0     //uruchomienie zegara CLK
+<     #define AT_MOTOR_DI_DIR       1     //kierunek obrotow
+<     #define AT_MOTOR_DI_EN        2     //sygnal "Enabled" dla zablokowania/odblokowania silnika
+<     #define AT_MOTOR_DI_DEST      3     //wskaznik ze silnik pracuje do osiagniecia pozycji docelowej ustawionej w rejestrach DEST
+<     #define AT_MOTOR_DI_ZERO      4     //impuls zerujacy dla licznika drogi
+< #define AT_MOTOR_AI_DEST      0x02		    //aktualna pozycja (podwojny rejestr)
+< #define AT_MOTOR_AI_FREQ      0x06		    //aktualna predkosc
+---
+>     #define AT_MOTOR_DI_GO        0     //uruchomienie zegara CLK
+>     #define AT_MOTOR_DI_DIR       1     //kierunek obrotów
+>     #define AT_MOTOR_DI_EN        2     //sygna³ "Enabled" dla zablokowania/odblokowania silnika
+>     #define AT_MOTOR_DI_DEST      3     //wskaŸnik ¿e silnik pracuje do osi¹gniêcia pozycji docelowej ustawionej w rejestrach DEST
+>     #define AT_MOTOR_DI_ZERO      4     //impuls zeruj¹cy dla licznika drogi
+> #define AT_MOTOR_AI_DEST      0x02		//aktualna pozycja (podwójny rejestr)
+> #define AT_MOTOR_AI_FREQ      0x06		//aktualna prêdkoœæ
+130c130
+< //PID  zestaw parametrow dla PID'a
+---
+> //PID  zestaw parametrów dla PID'a
+157,163c157,164
+< #define AT_PWM_AI_FREQ       0x00
+< #define AT_PWM_AI_RCMIN      0x02
+< #define AT_PWM_AI_RCMAX      0x04
+< #define AT_PWM_AI_WIDTHA     0x06
+< #define AT_PWM_AI_WIDTHB     0x08
+< #define AT_PWM_AI_WIDTHC     0x0a
+< #define AT_PWM_AI_WIDTHD     0x0c
+---
+> #define AT_PWM_AI_FREQ       0x00 //podwójny
+> #define AT_PWM_AI_RCMIN      0x04
+> #define AT_PWM_AI_RCMAX      0x06
+> #define AT_PWM_AI_WIDTHA     0x08
+> #define AT_PWM_AI_WIDTHB     0x0a
+> #define AT_PWM_AI_WIDTHC     0x0c
+> #define AT_PWM_AI_WIDTHD     0x0e
+> #define AT_PWM_FRAMEIN_CRC   0x10
+167,173c168,175
+< #define AT_PWM_AO_CHA        0x06
+< #define AT_PWM_AO_CHB        0x08
+< #define AT_PWM_AO_CHC        0x0a
+< #define AT_PWM_AO_CHD        0x0c
+< #define AT_PWM_AO_FREQ       0x0e
+< #define AT_PWM_AO_RCMIN      0x10
+< #define AT_PWM_AO_RCMAX      0x12
+---
+> #define AT_PWM_AO_RCMIN      0x04
+> #define AT_PWM_AO_RCMAX      0x06
+> #define AT_PWM_AO_CHA        0x08
+> #define AT_PWM_AO_CHB        0x0a
+> #define AT_PWM_AO_CHC        0x0c
+> #define AT_PWM_AO_CHD        0x0e
+> #define AT_PWM_AO_FREQ       0x10
+> #define AT_PWM_FRAMEOUT_CRC  0x14 
+180c182
+< #define AT_H0_AO_ROLL        0x00  //act (na podst czujnikow)
+---
+> #define AT_H0_AO_ROLL        0x00  //act (na podst czujników)
+255a258,287
+> 
+> //-----------------------------------
+> #define AT_TIMER_DI                      0x00
+> #define AT_TIMER_DI_STOPER_ON              0     //stoper
+> #define AT_TIMER_DI_STOPER_RESET           1     //reset stoper
+> #define AT_TIMER_DI_STOPER_PAUSE           2     //pauza stoper
+> #define AT_TIMER_AI_FREQ                 0x02       //podwójny
+> #define AT_TIMER_AI_SHAPEFREQ            0x06       //podwójny
+> #define AT_TIMER_AI_STOPER_TIMEOUT       0x0a       //podwójny
+> #define AT_TIMER_FRAMEIN_CRC             0x0e
+> 
+> #define AT_TIMER_AO_TC         0x00
+> #define AT_TIMER_AO_PER        0x02
+> #define AT_TIMER_AO_FREQ       0x04 //podwójny
+> #define AT_TIMER_AO_CZAS       0x08 //podwójny
+> #define AT_TIMER_AO_STOPER     0x0c //podwójny
+> #define AT_TIMER_FRAMEOUT_CRC  0x10
+> 
+> //-----------------------------------
+> #define AT_WAVE_AI_FREQ                 0x00      
+> #define AT_WAVE_AI_SHAPEFREQ            0x02      
+> #define AT_WAVE_FRAMEIN_CRC             0x04
+> 
+> #define AT_WAVE_AO_TC           0x00
+> #define AT_WAVE_AO_PER          0x02
+> #define AT_WAVE_AO_FREQ         0x04 
+> #define AT_WAVE_AO_SHAPEFREQ    0x06
+> #define AT_WAVE_FRAMEOUT_CRC    0x08
+> 
+> 
+262a295
+> 
