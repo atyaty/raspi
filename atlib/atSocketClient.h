@@ -28,7 +28,7 @@ private:
 
 
 public:
-    atSocketClient(atDataBuffer *dr,atDataBuffer *dw,string h, uint16_t p);
+    atSocketClient(atDataBuffer *dr,atDataBuffer *dw,std::string h, uint16_t p);
     ~atSocketClient();
     void go();
     bool isError() {return sError!="";}

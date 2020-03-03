@@ -1,7 +1,7 @@
 #include "atSocketClient.h"
 
 //--------------------------------------------------
-atSocketClient::atSocketClient(atDataBuffer *dr,atDataBuffer *dw, string h, uint16_t p)
+atSocketClient::atSocketClient(atDataBuffer *dr,atDataBuffer *dw, std::string h, uint16_t p)
 {
     dbr=dr;
     dbw=dw;
@@ -23,7 +23,7 @@ atSocketClient::atSocketClient(atDataBuffer *dr,atDataBuffer *dw, string h, uint
 
 }
 //--------------------------------------------------
-atSocketClient::~atSocketClient() {    close(sockfd);   }
+atSocketClient::~atSocketClient() {    close(sockfd);   }//UWAGA możliwe użycie nie zainicjowanej zmiennej sockfd
 
 //--------------------------------------------------
 void atSocketClient::go() {

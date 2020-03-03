@@ -1,4 +1,3 @@
-
 #ifndef atDataBuffer_H
 #define atDataBuffer_H
 

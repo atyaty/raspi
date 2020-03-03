@@ -6,7 +6,7 @@
 //#include <atSerial.h>
 #include <atSocketClient.h>
 #include <atI2C.h>
-#include <atI2C_pi.h>
+//#include <atI2C_pi.h>
 #include <atI2C_mcp.h>
 #include <atDataBuffer.h>
 #include <QTextStream>
